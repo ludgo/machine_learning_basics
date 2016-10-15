@@ -30,8 +30,18 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
+from time import time
 
-
+# k nearest neighbors
+from sklearn.neighbors.nearest_centroid import NearestCentroid
+clf = NearestCentroid()
+t0 = time()
+clf.fit(features_train, labels_train)
+print "training time: ", round(time()-t0, 3), "s"
+t1 = time()
+accuracy = clf.score(features_test, labels_test)
+print "prediction time: ", round(time()-t1, 3), "s"
+print "accuracy: ", accuracy
 
 
 
